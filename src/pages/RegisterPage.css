@@ -1,0 +1,58 @@
+/* .registerForm {
+  width: 30%;
+} */
+
+.registerWelcomeNote {
+  text-align: start;
+  font-weight: 100;
+  position: relative;
+  width: 100vw;
+  top: 40px;
+  left: 200px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.registerWelcomeNote > h1 {
+  font-size: 50px;
+}
+
+.mainDiv {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: space-around;
+  padding: 0 60px;
+}
+
+.registerInput,
+.registerButton,
+.singup {
+  border-radius: 20px;
+  height: 50px;
+  /* width: 50%; */
+  align-self: center;
+}
+
+.imgDiv {
+  width: 50%;
+  /* margin-right: 20px; */
+  margin-bottom: 110px;
+}
+
+.registerSvg {
+  width: 500px;
+  margin-top: 10px;
+}
+
+.registerForm {
+  width: 400px;
+  /* margin-right: 100px; */
+  /* border: 1px solid black; */
+  background-color: white;
+  border-radius: 15px;
+  z-index: 200px;
+  box-shadow: 0 5px 8px 0;
+  padding: 30px 20px;
+  position: relative;
+  bottom: 120px;
+}
