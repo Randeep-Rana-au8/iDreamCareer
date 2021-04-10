@@ -1,25 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import "./RegisterPage.css";
 import { Button, Form, FormControl } from "react-bootstrap";
 import svg from "../images/friends.png";
+import { connect } from "react-redux";
+import { userRegister } from "../actions/userAction";
 
-const Login = ({ state, setUser }) => {
+const Register = ({ state, setUser, userRegister, userLogin, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (userLogin.userInfo) {
+      history.push("/");
+    }
+  }, [userLogin]);
 
   const onNameChange = (event) => setName(event.target.value);
   const onEmailChange = (event) => setEmail(event.target.value);
   const onPasswordChange = (event) => setPassword(event.target.value);
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    const data = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+    };
+
+    userRegister(data);
   };
 
-  // if (user) return <Redirect to="/homePage" />;
   return (
     <div>
       <div className="registerWelcomeNote">
@@ -31,21 +44,39 @@ const Login = ({ state, setUser }) => {
           <img className="registerSvg" src={svg} alt="register svg" />
         </div>
 
-        <Form className="registerForm" onSubmit={onSubmit}>
+        <Form className="registerForm" onSubmit={handleSubmit}>
           <h4 style={{ textAlign: "center" }}>Register Form</h4>
           <Form.Group controlId="formBasicText">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter Name" onChange={onNameChange} />
+            <Form.Control
+              required
+              type="text"
+              name="name"
+              placeholder="Enter Name"
+              onChange={onNameChange}
+            />
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" onChange={onEmailChange} />
+            <Form.Control
+              required
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              onChange={onEmailChange}
+            />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" onChange={onPasswordChange} />
+            <Form.Control
+              required
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={onPasswordChange}
+            />
           </Form.Group>
 
           <Button variant="primary" type="submit">
@@ -67,4 +98,10 @@ const Login = ({ state, setUser }) => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    userLogin: state.userLogin,
+  };
+};
+
+export default connect(mapStateToProps, { userRegister })(Register);

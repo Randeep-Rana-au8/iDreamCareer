@@ -8,7 +8,7 @@ import Header from "./component/Header";
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Route path="/" component={Header} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/signup" component={RegisterPage} />
       <Route exact path="/" component={Homepage} />

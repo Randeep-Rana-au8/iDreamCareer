@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-import { Redirect } from "react-router-dom";
 import "./LoginPage.css";
-// import Svg from "../images/90576.jpg";
 import { Button, Form, FormControl } from "react-bootstrap";
 import { connect } from "react-redux";
 import svg from "../images/social-media.png";
+import { userLogin } from "../actions/userAction";
 
-const Login = ({ state, setUser }) => {
+const Login = ({ state, setUser, history, userLogin, userLoginData }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,10 +15,19 @@ const Login = ({ state, setUser }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    const data = { email, password };
+    userLogin(data);
+    setEmail("");
+    setPassword("");
   };
 
-  // if (user) return <Redirect to="/homePage" />;
+  useEffect(() => {
+    if (userLoginData.userInfo) {
+      history.push("/");
+    }
+    console.log(userLogin);
+  }, [userLogin, userLoginData]);
+
   return (
     <div>
       <div className="welcomeNote">
@@ -36,12 +43,24 @@ const Login = ({ state, setUser }) => {
           <h4 style={{ textAlign: "center" }}>Login Form</h4>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" onChange={onEmailChange} />
+            <Form.Control
+              name="email"
+              type="email"
+              value={email}
+              placeholder="Enter email"
+              onChange={onEmailChange}
+            />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" onChange={onPasswordChange} />
+            <Form.Control
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={onPasswordChange}
+            />
           </Form.Group>
 
           <Button variant="primary" type="submit">
@@ -63,4 +82,10 @@ const Login = ({ state, setUser }) => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    userLoginData: state.userLogin,
+  };
+};
+
+export default connect(mapStateToProps, { userLogin })(Login);
