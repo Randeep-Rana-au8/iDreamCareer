@@ -28,9 +28,7 @@ const Header = ({ userLogin, history, logout }) => {
         <LinkContainer to="/">
           <Nav.Link>Home</Nav.Link>
         </LinkContainer>
-        <LinkContainer to="/feature">
-          <Nav.Link>Features</Nav.Link>
-        </LinkContainer>
+
         <LinkContainer to="/profile">
           <Nav.Link>Profile</Nav.Link>
         </LinkContainer>

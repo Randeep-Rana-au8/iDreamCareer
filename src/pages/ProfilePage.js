@@ -13,6 +13,7 @@ const ProfilePage = ({ userLoginData, history, updateUser }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ const ProfilePage = ({ userLoginData, history, updateUser }) => {
           password,
         };
         updateUser(data);
+        setSuccess("User updated");
       } else {
         setError("Password not matched");
       }
@@ -39,6 +41,7 @@ const ProfilePage = ({ userLoginData, history, updateUser }) => {
       };
 
       updateUser(data);
+      setSuccess("User updated");
     }
   };
 
@@ -51,13 +54,14 @@ const ProfilePage = ({ userLoginData, history, updateUser }) => {
       setDob(userLoginData.userInfo.dob);
       setError("");
     }
-  }, [userLoginData.userInfo, submitHandler]);
+  }, [userLoginData.userInfo]);
 
   return (
     <>
       <h1 style={{ textAlign: "center", marginBottom: " 30px" }}>Profile Page </h1>
       <div className="profileContainer">
         <div className="profilePageContent">
+          {success && <Message>{success}</Message>}
           <Image src={svg} alt="user" className="userImage" />
         </div>
 
