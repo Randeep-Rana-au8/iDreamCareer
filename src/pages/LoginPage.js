@@ -5,6 +5,7 @@ import { Button, Form, FormControl } from "react-bootstrap";
 import { connect } from "react-redux";
 import svg from "../images/social-media.png";
 import { userLogin } from "../actions/userAction";
+import Message from "../component/Message";
 
 const Login = ({ state, setUser, history, userLogin, userLoginData }) => {
   const [email, setEmail] = useState("");
@@ -41,6 +42,9 @@ const Login = ({ state, setUser, history, userLogin, userLoginData }) => {
 
         <Form className="loginForm" onSubmit={onSubmit}>
           <h4 style={{ textAlign: "center" }}>Login Form</h4>
+          {userLoginData.errorLogin && (
+            <Message variant="danger">{userLoginData.errorLogin}</Message>
+          )}
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control

@@ -1,9 +1,20 @@
 import React from "react";
+import { Image } from "react-bootstrap";
+import svg from "../images/team.png";
 
 const Homepage = () => {
   return (
-    <div>
-      <h1>Homepage</h1>
+    <div className="homepageContainer">
+      <div>
+        <Image src={svg} className="homepageTeam" alt="team" />
+      </div>
+      <div>
+        <h1>Welcome to iDreamCareer</h1>
+        <p>We help to you chase your dreams.</p>
+
+        <br />
+        <br />
+      </div>
     </div>
   );
 };

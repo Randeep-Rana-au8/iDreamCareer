@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
+import { LinkContainer } from "react-router-bootstrap";
+
 import { logout } from "../actions/userAction";
 import "./Header.css";
 
@@ -19,11 +21,19 @@ const Header = ({ userLogin, history, logout }) => {
 
   return (
     <Navbar bg="light" variant="light">
-      <Navbar.Brand href="#home">iDreamCareer</Navbar.Brand>
+      <LinkContainer to="/">
+        <Navbar.Brand>iDreamCareer</Navbar.Brand>
+      </LinkContainer>
       <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#pricing">Features</Nav.Link>
-        <Nav.Link href="#features">Profile</Nav.Link>
+        <LinkContainer to="/">
+          <Nav.Link>Home</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/feature">
+          <Nav.Link>Features</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/profile">
+          <Nav.Link>Profile</Nav.Link>
+        </LinkContainer>
       </Nav>
 
       {userLogin.userInfo ? (

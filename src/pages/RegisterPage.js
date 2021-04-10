@@ -2,21 +2,22 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import "./RegisterPage.css";
-import { Button, Form, FormControl } from "react-bootstrap";
+import { Button, Form, FormControl, Image } from "react-bootstrap";
 import svg from "../images/friends.png";
 import { connect } from "react-redux";
 import { userRegister } from "../actions/userAction";
+import Message from "../component/Message";
 
-const Register = ({ state, setUser, userRegister, userLogin, history }) => {
+const Register = ({ state, setUser, userRegister, userLoginData, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    if (userLogin.userInfo) {
+    if (userLoginData.userInfo) {
       history.push("/");
     }
-  }, [userLogin]);
+  }, [userLoginData, history]);
 
   const onNameChange = (event) => setName(event.target.value);
   const onEmailChange = (event) => setEmail(event.target.value);
@@ -41,11 +42,14 @@ const Register = ({ state, setUser, userRegister, userLogin, history }) => {
       </div>
       <div className="mainDiv">
         <div className="imgDiv">
-          <img className="registerSvg" src={svg} alt="register svg" />
+          <Image className="registerSvg" src={svg} alt="register svg" />
         </div>
 
         <Form className="registerForm" onSubmit={handleSubmit}>
           <h4 style={{ textAlign: "center" }}>Register Form</h4>
+          {userLoginData.errorRegister && (
+            <Message variant="danger">{userLoginData.errorRegister}</Message>
+          )}
           <Form.Group controlId="formBasicText">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -100,7 +104,7 @@ const Register = ({ state, setUser, userRegister, userLogin, history }) => {
 
 const mapStateToProps = (state) => {
   return {
-    userLogin: state.userLogin,
+    userLoginData: state.userLogin,
   };
 };
 

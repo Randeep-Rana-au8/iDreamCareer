@@ -3,8 +3,32 @@
 }
 
 .App {
-  /* background-image: url("https://cdn.pixabay.com/photo/2021/01/17/02/02/planets-5923806__480.jpg"); */
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f7f7f7;
-  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+.homepageContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.homepageTeam {
+  width: 500px;
+}
+
+@media screen and (max-width: 800px) {
+  .homepageContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    margin-top: 30px;
+    align-items: center;
+  }
+
+  .homepageTeam {
+    width: 300px;
+    margin-bottom: 30px;
+  }
 }
