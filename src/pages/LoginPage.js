@@ -33,7 +33,7 @@ const Login = ({ state, setUser, history, userLogin, userLoginData }) => {
     <div>
       <div className="loginWelcomeNote">
         <h1>Sign In to</h1>
-        <h1>Recharge Direct</h1>
+        <h1>Boost Career </h1>
       </div>
       <div className="mainDiv">
         <div className="imgDiv">

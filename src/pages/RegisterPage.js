@@ -38,7 +38,7 @@ const Register = ({ state, setUser, userRegister, userLoginData, history }) => {
     <div>
       <div className="registerWelcomeNote">
         <h1>Sign Up to</h1>
-        <h1>Recharge Direct</h1>
+        <h1>Boost Career</h1>
       </div>
       <div className="mainDiv">
         <div className="imgDiv">
