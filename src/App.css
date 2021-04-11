@@ -18,7 +18,7 @@
   width: 500px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   .homepageContainer {
     display: flex;
     flex-direction: column;
@@ -30,5 +30,30 @@
   .homepageTeam {
     width: 300px;
     margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .homepageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .homepageTeam {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  .homepageWelcome {
+    justify-content: center;
+    width: 300px;
+  }
+
+  .homepageWelcome > h1 {
+    font-size: 30px;
   }
 }

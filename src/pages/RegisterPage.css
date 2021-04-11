@@ -73,13 +73,13 @@
     text-align: start;
     font-weight: 100;
     width: 100vw;
-    height: 161px;
     overflow: hidden;
+    height: 180px;
     font-family: "Quicksand", sans-serif;
   }
 
   .registerWelcomeNote > h1 {
-    font-size: 40px;
+    font-size: 50px;
     position: relative;
     top: 40px;
     left: 100px;
@@ -88,11 +88,75 @@
   .imgDiv {
     width: 100%;
     /* margin-right: 20px; */
-    margin-bottom: 110px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
   }
 
   .registerSvg {
-    width: 400px;
+    width: 500px;
     margin-bottom: 30px;
+  }
+
+  .registerForm {
+    width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    z-index: 200px;
+    box-shadow: 0 5px 8px 0;
+    padding: 50px 40px;
+    position: relative;
+    bottom: 150px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mainDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    align-items: center;
+    padding: 0px;
+  }
+
+  .registerWelcomeNote {
+    text-align: start;
+    font-weight: 100;
+    width: 100vw;
+    overflow: hidden;
+    height: 161px;
+    font-family: "Quicksand", sans-serif;
+  }
+
+  .registerWelcomeNote > h1 {
+    font-size: 40px;
+    position: relative;
+    top: 40px;
+    left: 50px;
+  }
+
+  .imgDiv {
+    width: auto;
+    /* margin-right: 20px; */
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .registerSvg {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  .registerForm {
+    width: 400px;
+    background-color: white;
+    border-radius: 15px;
+    z-index: 200px;
+    box-shadow: 0 5px 8px 0;
+    padding: 50px 40px;
+    position: relative;
+    bottom: 150px;
   }
 }

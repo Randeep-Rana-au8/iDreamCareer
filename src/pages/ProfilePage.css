@@ -28,3 +28,27 @@
     margin: 20px 40px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .profileContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    align-items: center;
+  }
+
+  .userImage {
+    width: 150px;
+    margin: 20px 40px;
+  }
+
+  .editProfileForm {
+    width: 300px;
+  }
+
+  .userProfileEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -68,7 +68,7 @@ const ProfilePage = ({ userLoginData, history, updateUser }) => {
         <div className="userProfileEdit">
           <h2>User Profile</h2>
 
-          <Form onSubmit={submitHandler}>
+          <Form className="editProfileForm" onSubmit={submitHandler}>
             {error && <Message variant="danger"> {error}</Message>}
             <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>

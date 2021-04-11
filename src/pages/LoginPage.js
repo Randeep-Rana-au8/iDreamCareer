@@ -31,7 +31,7 @@ const Login = ({ state, setUser, history, userLogin, userLoginData }) => {
 
   return (
     <div>
-      <div className="welcomeNote">
+      <div className="loginWelcomeNote">
         <h1>Sign In to</h1>
         <h1>Recharge Direct</h1>
       </div>
